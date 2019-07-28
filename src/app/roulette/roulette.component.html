@@ -1,0 +1,61 @@
+<div class="wrap">
+  <div class="user">
+    <p>Your wallet: {{wallet}}$</p>
+    <div>
+      <p>Your rate:</p>
+      <button class="count" (click)="changeCount(-100)" [disabled]="count === 100"><span>-</span></button> {{count}}$
+      <button class="count" (click)="changeCount(+100)" [disabled]="count === wallet || count > wallet"><span>+</span></button>
+    </div>
+  </div>
+  <img [ngStyle]="{'transform': deg, 'transition': time, 'width': '300px'}" #imgRef src="assets/img/roulette.png"/>
+
+  <button
+    class="btn-action"
+    (click)="startGame()"
+    [disabled]="wallet === 0 || inProgress || !selectedBet || count > wallet"
+  >start game</button>
+  <p class="bet" *ngIf="!selectedBet">make a bet</p>
+  <p class="rand" [ngStyle]="{color: numbers[rand] ? numbers[rand].color : 'black'}">
+    {{numbers[rand] ? numbers[rand].value : ''}}
+  </p>
+  <div class="table">
+    <div class="wrapper-block__left">
+      <app-table-item
+        *ngFor="let even of evenOdd, let i = index"
+        [data]="even"
+        (click)="onSelectItem(i, even, 'even')"
+        [isChip]="selectedItem['even'] === i && chipType === 'even'"
+      >
+      </app-table-item>
+    </div>
+    <div class="wrapper-block">
+      <app-table-item
+        *ngFor="let number of numbers, let i = index"
+        [data]="number"
+        (click)="onSelectItem(i, number, 'number')"
+        [isChip]="selectedItem['number'] === i && chipType === 'number'"
+      >
+      </app-table-item>
+
+      <app-table-item
+        *ngFor="let color of colors, let i = index"
+        [data]="color"
+        (click)="onSelectItem(i, color, 'color')"
+        [isChip]="selectedItem['color'] === i && chipType === 'color'"
+      >
+      </app-table-item>
+    </div>
+    <div class="wrapper-block__right">
+      <app-table-item
+        *ngFor="let sector of sectors, let i = index"
+        [data]="sector"
+        (click)="onSelectItem(i, sector, 'sector')"
+        [isChip]="selectedItem['sector'] === i && chipType === 'sector'"
+      >
+      </app-table-item>
+
+    </div>
+  </div>
+
+</div>
+

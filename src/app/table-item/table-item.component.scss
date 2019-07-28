@@ -1,0 +1,23 @@
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  background: #f00;
+  border: 1px solid #fff;
+  p{
+    color: #fff;
+    font-size: 24px;
+  }
+  .chip{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,93 @@
+.wrap{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .user{
+    p{
+      color: #fff;
+    }
+   div{
+     display: flex;
+     align-items: center;
+     .count{
+       width: 20px;
+       height: 20px;
+       border-radius: 50%;
+       border: 0;
+       background: #5553ff;
+       margin: 10px;
+       cursor: pointer;
+       color: #fff;
+       text-transform: capitalize;
+       &:focus{
+         outline: none;
+       }
+       &:active{
+         transform: scale(.95);
+       }
+       span{
+         font-weight: bold;
+       }
+       &:disabled{
+         background: #cbcbcb;
+       }
+     }
+   }
+  }
+  .btn-action{
+    padding: 20px 40px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: none;
+    background: #5553ff;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 24px;
+    &:focus{
+      outline: none;
+    }
+    &:active{
+      transform: scale(.95);
+    }
+    &:disabled{
+      background: #cbcbcb;
+    }
+  }
+  .bet{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  .rand{
+    margin: 0;
+    color: #f00;
+    transition: all 1.5s;
+    font-size: 32px;
+  }
+  .table{
+    display: flex;
+    margin-top: 20px;
+    .wrapper-block__left{
+      height: 624px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      app-table-item{
+        transform: rotate(90deg);
+        margin-right: -27px;
+      }
+    }
+    .wrapper-block{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 310px;
+    }
+    .wrapper-block__right{
+      @extend .wrapper-block__left;
+      app-table-item{
+        margin-left: -28px;
+      }
+    }
+  }
+}
